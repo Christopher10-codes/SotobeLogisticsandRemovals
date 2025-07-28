@@ -64,21 +64,56 @@
         checkSteps(); 
         
         // Form submission
-        const quoteForm = document.getElementById('quoteRequestForm');
-        if (quoteForm) {
-            quoteForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+         document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('quoteRequestForm');
+        const formMessages = document.getElementById('form-messages');
+        const submitBtn = form.querySelector('.submit-btn');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            form.classList.add('form-submitting');
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            // Submit form via Fetch API
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success message
+                    formMessages.innerHTML = 'Thank you! Your quote request has been submitted. We will contact you within 24 hours.';
+                    formMessages.className = 'success';
+                    form.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                // Error message
+                formMessages.innerHTML = 'Oops! There was a problem submitting your form. Please try again or contact us directly.';
+                formMessages.className = 'error';
+            })
+            .finally(() => {
+                // Remove loading state
+                form.classList.remove('form-submitting');
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
                 
-                // Here you would typically send the form data to your server
-                // For demo purposes, we'll just show an alert
-                alert('Thank you for your request! We will contact you within 24 hours with your quote.');
-                this.reset();
+                // Scroll to message
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 
-                // Scroll to top of form to show success message
-                window.scrollTo({
-                    top: quoteForm.offsetTop - 100,
-                    behavior: 'smooth'
-                });
+                // Hide message after 10 seconds
+                setTimeout(() => {
+                    formMessages.style.display = 'none';
+                }, 10000);
             });
-        }
+        });
+    });
     
