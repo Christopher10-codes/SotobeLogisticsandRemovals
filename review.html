@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | Digital Locksmith</title>
+    <title>Thank You | Sotobe Logistics & Removals</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #00FF9D;
-            --secondary: #7B42F6;
-            --accent: #00D4FF;
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #00A8E8;
             --dark: #0A0E17;
             --darker: #050A14;
             --card-bg: rgba(16, 24, 39, 0.8);
@@ -32,8 +32,8 @@
             overflow-x: hidden;
         }
         
-        /* Cyber security grid background */
-        .cyber-grid {
+        /* Logistics grid background */
+        .logistics-grid {
             position: fixed;
             top: 0;
             left: 0;
@@ -46,6 +46,26 @@
             background-size: 22px 22px;
             opacity: 0.03;
             z-index: -1;
+        }
+        
+        /* Moving truck animation */
+        .moving-truck {
+            position: fixed;
+            bottom: 10%;
+            left: -100px;
+            font-size: 3rem;
+            animation: drive 20s linear infinite;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        @keyframes drive {
+            0% {
+                transform: translateX(-100px);
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px));
+            }
         }
         
         /* Animated background elements */
@@ -116,7 +136,7 @@
             backdrop-filter: blur(10px);
             padding: 25px 0;
             text-align: center;
-            border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -139,7 +159,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+            text-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
         }
         
         .tagline {
@@ -175,22 +195,22 @@
             font-size: 5rem;
             margin-bottom: 20px;
             color: var(--accent);
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            text-shadow: 0 0 20px rgba(0, 168, 232, 0.5);
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
             0% {
                 transform: scale(1);
-                text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+                text-shadow: 0 0 10px rgba(0, 168, 232, 0.5);
             }
             50% {
                 transform: scale(1.05);
-                text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+                text-shadow: 0 0 20px rgba(0, 168, 232, 0.8);
             }
             100% {
                 transform: scale(1);
-                text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+                text-shadow: 0 0 10px rgba(0, 168, 232, 0.5);
             }
         }
         
@@ -249,7 +269,7 @@
         
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 255, 157, 0.2);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
         }
         
         .card:hover::before {
@@ -260,7 +280,7 @@
             font-size: 3.5rem;
             margin-bottom: 25px;
             color: var(--primary);
-            text-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
         }
         
         .card-title {
@@ -282,7 +302,7 @@
             justify-content: center;
             gap: 10px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: var(--dark);
+            color: white;
             padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
@@ -292,7 +312,7 @@
             cursor: pointer;
             font-size: 1.1rem;
             margin: 5px;
-            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -310,7 +330,7 @@
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 255, 157, 0.5);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.5);
         }
         
         .btn:hover::before {
@@ -326,9 +346,9 @@
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
         }
         
-        .security-features {
-            background: rgba(0, 255, 157, 0.1);
-            border: 1px solid rgba(0, 255, 157, 0.2);
+        .services-features {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             padding: 20px;
             border-radius: 15px;
             margin: 25px 0;
@@ -337,7 +357,7 @@
             overflow: hidden;
         }
         
-        .security-features::before {
+        .services-features::before {
             content: '';
             position: absolute;
             top: 0;
@@ -347,19 +367,19 @@
             background: var(--accent);
         }
         
-        .feature-list {
+        .services-list {
             text-align: left;
             margin: 15px 0;
         }
         
-        .feature-list li {
+        .services-list li {
             margin: 10px 0;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .feature-list i {
+        .services-list i {
             color: var(--primary);
         }
         
@@ -397,7 +417,7 @@
             text-align: center;
             padding: 40px 0;
             margin-top: 80px;
-            border-top: 1px solid rgba(0, 255, 157, 0.2);
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
             position: relative;
         }
         
@@ -420,20 +440,20 @@
             text-shadow: 0 0 10px currentColor;
         }
         
-        .lock-icon {
+        .truck-icon {
             display: inline-block;
-            animation: lock 3s infinite;
+            animation: move 3s infinite;
         }
         
-        @keyframes lock {
+        @keyframes move {
             0%, 100% {
-                transform: rotate(0deg);
+                transform: translateX(0);
             }
             25% {
-                transform: rotate(10deg);
+                transform: translateX(5px);
             }
             75% {
-                transform: rotate(-10deg);
+                transform: translateX(-5px);
             }
         }
         
@@ -458,8 +478,11 @@
     </style>
 </head>
 <body>
-    <!-- Cyber security grid background -->
-    <div class="cyber-grid"></div>
+    <!-- Logistics grid background -->
+    <div class="logistics-grid"></div>
+    
+    <!-- Moving truck animation -->
+    <div class="moving-truck">🚚</div>
     
     <!-- Animated background elements -->
     <div class="bg-elements">
@@ -470,17 +493,18 @@
     
     <header>
         <div class="container">
-            <div class="logo">Digital Locksmith</div>
-            <div class="tagline">Exceptional Locksmith services. Digital Locksmith.</div>
+            <div class="logo">Sotobe Logistics & Removals</div>
+            <div class="tagline">Moving Your World. Delivering Excellence.</div>
         </div>
     </header>
     
     <div class="container">
         <section class="thank-you-section">
-            <div class="thank-you-icon"><i class="fas fa-lock lock-icon"></i></div>
-            <h1 class="thank-you-title">Thank You for Choosing Digital Locksmith!</h1>
+            <div class="thank-you-icon"><i class="fas fa-truck-moving truck-icon"></i></div>
+            <h1 class="thank-you-title">Thank You for Choosing Sotobe Logistics!</h1>
             <p class="thank-you-text">
-                We truly appreciate your trust in our services. Your safety and peace of mind are our top priorities. We hope your experience exceeded expectations.
+                We truly appreciate your trust in our logistics and removal services. Your satisfaction is our driving force, 
+                and we're grateful for the opportunity to handle your moving needs with care and professionalism.
             </p>
             <a href="https://g.page/r/CXw-J7GiqcDmEBM/review" class="btn" target="_blank" id="reviewBtn">
                 <i class="fas fa-star glow"></i> Leave a Review
@@ -490,9 +514,9 @@
         <div class="action-cards">
             <div class="card">
                 <div class="card-icon"><i class="fas fa-star glow"></i></div>
-                <h3 class="card-title">Share Your Experience</h3>
+                <h3 class="card-title">Share Your Moving Experience</h3>
                 <p class="card-text">
-                    Help others discover our cutting-edge locksmith security services by sharing your feedback. Your review helps us grow and continue protecting more clients.
+                    Help others discover our reliable logistics services by sharing your feedback. Your review helps us grow and continue delivering exceptional moving experiences.
                 </p>
                 <a href="https://g.page/r/CXw-J7GiqcDmEBM/review" class="btn" target="_blank">
                     <i class="fas fa-pen glow"></i> Write a Review
@@ -501,12 +525,20 @@
             
             <div class="card">
                 <div class="card-icon"><i class="fas fa-user-friends glow"></i></div>
-                <h3 class="card-title">Refer a Client</h3>
+                <h3 class="card-title">Refer Friends & Family</h3>
                 <p class="card-text">
-                    Impressed with our locksmith solutions? Share Digital Locksmith with friends, family, or business associates who need professional Locksmith services.
+                    Had a smooth moving experience? Share Sotobe Logistics with friends, family, or colleagues who need reliable moving and logistics services.
                 </p>
                 
-                
+                <div class="services-features">
+                    <p><strong>Our Comprehensive Services:</strong></p>
+                    <ul class="services-list">
+                        <li><i class="fas fa-home"></i> House & Office Removals</li>
+                        <li><i class="fas fa-boxes"></i> Packing & Storage Solutions</li>
+                        <li><i class="fas fa-shipping-fast"></i> Local & Long Distance Moves</li>
+                        <li><i class="fas fa-warehouse"></i> Item Wrapping  /li>
+                    </ul>
+                </div>
                 
                 <!-- WhatsApp Referral Button -->
                 <button class="btn btn-whatsapp" id="whatsappReferral">
@@ -525,9 +557,9 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Digital Locksmith. All rights reserved.</p>
+            <p>&copy; 2025 Sotobe Logistics & Removals. All rights reserved.</p>
             <div class="contact-info">
-                <p>Email: akonlocksmith16@gmail.com | Phone: 078 409 9028</p>
+                <p>Email: info@sotobelogisticsandremovals.co.za | Phone: 076 183 2006</p>
             </div>
         </div>
     </footer>
@@ -535,21 +567,23 @@
     <script>
         // Main WhatsApp sharing function
         function shareViaWhatsApp() {
-            const phoneNumber = "0784099028";
-            const website = "www.digital-locksmith.co.za";
+            const phoneNumber = "0761832006";
+            const website = "www.sotobelogisticsandremovals.co.za";
             
-            const message = ` Hey! I recently used Digital Locksmith for my Locksmith needs and their service was exceptional! 
+            const message = `
+I recently used Sotobe Logistics & Removals and their service was outstanding! 
 
-        Their expertise includes:
-        • Key Cutting
-        • Car key programming
-        • Gate Remotes
-        • safes
-        • Emergency lockout services
-        If you need reliable locksmith solutions, I highly recommend contacting them:
+Their professional team provided:
+• Careful handling of all items
+• Punctual and reliable service
+• affordable pricing
+• Stress-free moving experience
 
-        phone: ${phoneNumber}
-        Website:  ${website}` ;
+If you need reliable logistics or moving services, I highly recommend contacting them:
+
+phone: ${phoneNumber}
+website: ${website}
+`;
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
@@ -571,6 +605,18 @@
                 element.style.animationDelay = `-${Math.random() * 20}s`;
                 element.style.opacity = `${Math.random() * 0.1 + 0.05}`;
                 bgContainer.appendChild(element);
+            }
+            
+            // Create multiple moving trucks
+            const truckContainer = document.querySelector('.moving-truck').parentNode;
+            for (let i = 0; i < 3; i++) {
+                const truck = document.createElement('div');
+                truck.className = 'moving-truck';
+                truck.innerHTML = '🚚';
+                truck.style.animationDelay = `${i * 7}s`;
+                truck.style.bottom = `${10 + i * 15}%`;
+                truck.style.opacity = `${0.05 + i * 0.03}`;
+                truckContainer.appendChild(truck);
             }
             
             // WhatsApp referral buttons
